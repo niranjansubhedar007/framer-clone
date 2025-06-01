@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
   return (
     <main
       ref={containerRef}
-      className="lg:-mt-14 md:-mt-14 z-90 lg:h-[35rem] md:h-[30rem] h-[20rem] relative bg-black text-white font-sans overflow-hidden flex flex-col items-center justify-center px-4"
+      className="lg:-mt-14 md:-mt-14 z-90 lg:h-[35rem] md:h-[30rem] h-[26rem] relative bg-black text-white font-sans overflow-hidden flex flex-col items-center justify-center px-4"
     >
       {/* Heading text with scroll animation */}
       <div className="text-center w-full relative">
