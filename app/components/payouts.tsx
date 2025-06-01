@@ -1,7 +1,7 @@
-
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
+
 type BlurredTextProps = {
   text: string;
   scrollProgress: number;
@@ -24,7 +24,10 @@ const BlurredText: React.FC<BlurredTextProps> = ({
         if (direction === "down") {
           blurAmount = Math.max(0, 8 * (charPosition - scrollProgress * 1.2));
         } else {
-          blurAmount = Math.max(0, 8 * (1 - charPosition - scrollProgress * 1.2));
+          blurAmount = Math.max(
+            0,
+            8 * (1 - charPosition - scrollProgress * 1.2)
+          );
         }
 
         return (
@@ -105,49 +108,46 @@ const PayoutPage: React.FC = () => {
 
   return (
     <main className="relative min-h-screen bg-black text-white font-sans overflow-hidden flex flex-col justify-center items-center text-center px-4">
+      {/* MODIFIED VIDEO - Increased height and adjusted positioning */}
+      {/* Background video */}
+<video
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="absolute top-[20%] left-0 w-full h-[170vh] object-cover z-30 opacity-70 mix-blend-screen pointer-events-none"
+>
+  <source src="/images/framer-vidio.mp4" type="video/mp4" />
+</video>
 
-      {/* Background Video at bottom */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute bottom-0 left-0 w-full h-[100vh] object-cover z-0 opacity-50"
-      >
-        <source src="/images/framer-vidio.mp4" type="video/mp4" />
-      </video>
-
-  
 
       {/* Foreground content */}
       <div className="relative z-20 flex flex-col items-center justify-center py-24 w-full max-w-3xl">
-
         {/* Badge */}
-        <span className="inline-block text-xs text-white border border-white/30 rounded-full px-4 py-1.5 mb-6 bg-white/5 backdrop-blur-sm">
-          Payouts
-        </span>
 
+        <button className="text-xs sm:text-sm  bg-gradient-to-b from-[#fff] to-[#6e47c7] bg-clip-text text-transparent border border-[#252424] rounded-full px-4 py-1 mb-3 z-10">
+          Payouts
+        </button>
         {/* Heading */}
         <HeadingWithBlur />
 
         {/* Subtext */}
-        <p className="text-sm sm:text-base text-white/70 mb-12 max-w-md">
+        <p className="text-sm text-white/70  max-w-md">
           Your Trust is Our Fuel—Power Up with Abcd
         </p>
 
         {/* Live Payout Number */}
-        <div className="text-[60px] sm:text-[200px] font-light text-white mb-10 tracking-tight flex items-center justify-center">
-          <span>${payout.toLocaleString("en-US")}</span>
-          <span className="text-purple-400 ml-2">+</span>
-        </div>
+  <div className="text-[60px] sm:text-[200px] font-normal tracking-tight flex items-center justify-center z-10 bg-gradient-to-b from-white to-black bg-clip-text text-transparent">
+  <span>${payout.toLocaleString("en-US")}</span>
+  <span className="bg-gradient-to-b from-[#a3a2a2] to-[#3e2f61] bg-clip-text text-transparent px-4 py-1 mb-3">+</span>
+</div>
+
 
         {/* CTA Button */}
-              <div className="mt-10">
-          <button className="snake-border relative z-10 px-6 py-2.5 text-white text-sm font-semibold rounded-2xl bg-black hover:bg-[#924b91] flex items-center gap-2">
-            <span className="relative z-10">Are you Next</span>
-            <ArrowUpRight size={18} className="relative z-10" />
-          </button>
-        </div>
+        <button className="snake-border relative z-40 px-6 py-2.5 text-white text-sm font-semibold rounded-2xl  bg-black hover:bg-[#924b91] flex items-center gap-2">
+          <span className="relative ">Are you Next</span>
+          <ArrowUpRight size={18} className="relative z-10" />
+        </button>
       </div>
     </main>
   );

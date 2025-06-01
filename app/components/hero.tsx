@@ -66,7 +66,7 @@ const HeroPage: React.FC = () => {
 
       <main className="text-white font-sans flex flex-col items-center justify-start pt-20 relative overflow-x-hidden px-4 sm:px-8 z-10">
         {/* Top “Our Process” Button */}
-        <button className="text-xs sm:text-sm text-[#958BCF] border border-[#3f3f3f] rounded-full px-5 py-1 mb-3 z-10">
+        <button className="text-xs sm:text-sm  bg-gradient-to-b from-[#fff] to-[#6e47c7] bg-clip-text text-transparent border border-[#252424] rounded-full px-4 py-1 mb-3 z-10">
           Our Process
         </button>
 

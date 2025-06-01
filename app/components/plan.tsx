@@ -80,9 +80,10 @@ const PlanPage: React.FC = () => {
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <div className="text-center py-10">
-          <button className="text-xs text-[#958BCF] border border-[#3f3f3f] rounded-full px-4 py-1 mb-5">
-            Compare Plans
-          </button>
+     
+              <button className="text-xs sm:text-sm  bg-gradient-to-b from-[#fff] to-[#6e47c7] bg-clip-text text-transparent border border-[#252424] rounded-full px-4 py-1 mb-3 z-10">
+          Compare Plans
+        </button>
           <h2 className="text-[2rem] sm:text-[3rem] font-semibold">
             Compare your <span className="text-[#A35CA2]">Abcd</span> plan
           </h2>
