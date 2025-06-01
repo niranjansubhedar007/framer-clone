@@ -84,10 +84,10 @@ const PlanPage: React.FC = () => {
               <button className="text-xs sm:text-sm  bg-gradient-to-b from-[#fff] to-[#6e47c7] bg-clip-text text-transparent border border-[#252424] rounded-full px-4 py-1 mb-3 z-10">
           Compare Plans
         </button>
-          <h2 className="text-[2rem] sm:text-[3rem] font-semibold">
+          <h2 className="text-[2rem] sm:text-[3.5rem] ">
             Compare your <span className="text-[#A35CA2]">Abcd</span> plan
           </h2>
-          <p className="text-xs sm:text-sm text-[#FFFFFFBF] mt-1 font-semibold mb-3">
+          <p className="text-xs sm:text-sm text-[#FFFFFFBF] mt-1  mb-3">
             Flexible Deposits for Every Trader
           </p>
         </div>

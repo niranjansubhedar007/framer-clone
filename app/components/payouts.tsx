@@ -77,14 +77,14 @@ const HeadingWithBlur = () => {
 
   return (
     <div ref={containerRef} className="mb-4">
-      <h1 className="text-3xl sm:text-5xl font-semibold leading-tight">
+      <h1 className="text-[2rem] sm:text-[3.5rem]  leading-tight">
         <BlurredText
           text="We've Paid Out Over"
           scrollProgress={scrollProgress}
           direction={scrollDirection}
           isFirstLine
         />
-        <div className="mt-2">
+        <div className="">
           <BlurredText
             text="$1M to Traders"
             scrollProgress={scrollProgress}
@@ -107,22 +107,21 @@ const PayoutPage: React.FC = () => {
   }, []);
 
   return (
-    <main className="relative min-h-screen bg-black text-white font-sans overflow-hidden flex flex-col justify-center items-center text-center px-4">
+    <main className="relative  bg-black text-white font-sans overflow-hidden flex flex-col justify-center items-center text-center px-4">
       {/* MODIFIED VIDEO - Increased height and adjusted positioning */}
       {/* Background video */}
-<video
-  autoPlay
-  loop
-  muted
-  playsInline
-  className="absolute top-[20%] left-0 w-full h-[170vh] object-cover z-30 opacity-70 mix-blend-screen pointer-events-none"
->
-  <source src="/images/framer-vidio.mp4" type="video/mp4" />
-</video>
-
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-[20%] left-0 w-full h-[170vh] object-cover overflow-hidden z-30 opacity-70 mix-blend-screen pointer-events-none"
+      >
+        <source src="/images/framer-vidio.mp4" type="video/mp4" />
+      </video>
 
       {/* Foreground content */}
-      <div className="relative z-20 flex flex-col items-center justify-center py-24 w-full max-w-3xl">
+      <div className="relative  flex flex-col items-center justify-center py-24 w-full max-w-3xl">
         {/* Badge */}
 
         <button className="text-xs sm:text-sm  bg-gradient-to-b from-[#fff] to-[#6e47c7] bg-clip-text text-transparent border border-[#252424] rounded-full px-4 py-1 mb-3 z-10">
@@ -137,16 +136,28 @@ const PayoutPage: React.FC = () => {
         </p>
 
         {/* Live Payout Number */}
-  <div className="text-[60px] sm:text-[200px] font-normal tracking-tight flex items-center justify-center z-10 bg-gradient-to-b from-white to-black bg-clip-text text-transparent">
-  <span>${payout.toLocaleString("en-US")}</span>
-  <span className="bg-gradient-to-b from-[#a3a2a2] to-[#3e2f61] bg-clip-text text-transparent px-4 py-1 mb-3">+</span>
-</div>
+        <div className="text-[60px] sm:text-[200px] font-normal tracking-tight flex items-center justify-center z-10 bg-gradient-to-b from-white to-black bg-clip-text text-transparent">
+          <span>${payout.toLocaleString("en-US")}</span>
+          <span className="bg-gradient-to-b from-[#a3a2a2] to-[#3e2f61] bg-clip-text text-transparent px-4 py-1 mb-3">
+            +
+          </span>
+        </div>
 
+        <button
+          className="relative bg-black text-white   cursor-pointer  z-50 text-sm font-medium px-5 py-2.5 rounded-2xl 
+             transition-all duration-700 ease-in-out 
+             hover:bg-gray-100 group overflow-hidden hover:rounded-tr-none"
+        >
+          <span className="relative z-10 flex">
+            Are you Next?
+            <ArrowUpRight size={18} className="ml-2" />
+          </span>
 
-        {/* CTA Button */}
-        <button className="snake-border relative z-40 px-6 py-2.5 text-white text-sm font-semibold rounded-2xl  bg-black hover:bg-[#924b91] flex items-center gap-2">
-          <span className="relative ">Are you Next</span>
-          <ArrowUpRight size={18} className="relative z-10" />
+          <span
+            className="absolute inset-0 bg-gradient-to-r from-purple-400 to-indigo-500 
+                   opacity-0 group-hover:opacity-100 
+                   transition-opacity duration-700 ease-in-out z-0"
+          ></span>
         </button>
       </div>
     </main>

@@ -71,20 +71,17 @@ const HeroPage: React.FC = () => {
         </button>
 
         {/* Heading */}
-        <h1 className="text-center text-[2rem] sm:text-[3rem] leading-snug font-semibold z-10">
-          Become a{" "}
-          <span className="text-[#A35CA2] font-medium mr-2">Abcd Pro</span> in
-          sec...
+        <h1 className="text-center text-[2rem] sm:text-[3.5rem]   leading-snug  z-10">
+          Become a <span className="text-[#A35CA2]  ">Abcd Pro</span> in sec...
         </h1>
 
         {/* Subtext */}
-        <p className="mt-1 text-xs sm:text-sm text-[#FFFFFFBF] z-10 mb-20">
+        <p className="mt-1 text-xs  sm:text-sm text-[#FFFFFFBF] z-10 mb-20">
           🚀 Sign up. Fund. Trade.
         </p>
 
         {steps.map((step, index) => {
           const lineHeight = getLineHeight(index);
-          const numberIsWhite = lineHeight >= LINE_MAX_HEIGHT * 0.3;
 
           return (
             <div
@@ -97,7 +94,9 @@ const HeroPage: React.FC = () => {
               <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center">
                 <div
                   className={`${
-                    numberIsWhite ? "text-white" : "text-[#888]"
+                    index === 0 || lineHeight >= LINE_MAX_HEIGHT * 0.3
+                      ? "text-white"
+                      : "text-[#888]"
                   } text-4xl font-bold z-10 transition-colors duration-200 mb-5`}
                 >
                   {step.number}
@@ -115,9 +114,21 @@ const HeroPage: React.FC = () => {
                 </div>
                 {index === steps.length - 1 && (
                   <div className="mt-10">
-                    <button className="snake-border relative z-10 px-6 py-2.5 text-white text-sm font-semibold rounded-2xl bg-[#6242A5] hover:bg-[#924b91] flex items-center gap-2">
-                      <span className="relative z-10">Open FREE Account</span>
-                      <ArrowUpRight size={18} className="relative z-10" />
+                    <button
+                      className="relative bg-[#6242A5] text-white cursor-pointer z-50 text-sm font-medium px-5 py-2.5 rounded-2xl 
+             transition-all duration-700 ease-in-out 
+             hover:bg-gray-100 group overflow-hidden hover:rounded-tr-none"
+                    >
+                      <span className="relative z-10 flex">
+                        Open FREE Account
+                        <ArrowUpRight size={18} className="ml-2" />
+                      </span>
+
+                      <span
+                        className="absolute inset-0 bg-gradient-to-r from-purple-400 to-indigo-500 
+                   opacity-0 group-hover:opacity-100 
+                   transition-opacity duration-700 ease-in-out z-0"
+                      ></span>
                     </button>
                   </div>
                 )}
@@ -125,7 +136,7 @@ const HeroPage: React.FC = () => {
 
               {/* Text */}
               {step.align === "right" ? (
-                <div className="absolute left-1/2 transform translate-x-8 top-0 ml-10  text-left">
+                <div className="absolute left-1/2 transform translate-x-8 top-0 ml-10 text-left">
                   <p className="text-sm text-[#aaa]">Step {index + 1}</p>
                   <p className="text-white text-xl font-semibold whitespace-nowrap">
                     {step.title}
@@ -142,7 +153,6 @@ const HeroPage: React.FC = () => {
             </div>
           );
         })}
-        
       </main>
     </>
   );
